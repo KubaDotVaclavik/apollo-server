@@ -1,0 +1,17 @@
+type Query {
+  items: [Item]
+}
+
+type Mutation {
+  itemCreate(input: ItemCreateInput): Item
+}
+
+type Item {
+  name: String
+  type: String
+}
+
+input ItemCreateInput {
+  name: String
+  type: String
+}
