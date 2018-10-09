@@ -1,0 +1,28 @@
+extend type Query {
+  viewer: User
+  users: [User]
+}
+
+# extend type Mutation {
+#   textCreate(input: TextCreateInput): Text
+# }
+
+type User {
+  id: ID
+  username: String
+  roleCode: String
+  role: Role
+}
+
+type Role {
+  code: String
+}
+
+# input TextCreateInput {
+#   code: String!
+#   text_cs: String!
+#   text_en: String
+#   text_svk: String
+#   text_blr: String
+#   poznamka: String
+# }

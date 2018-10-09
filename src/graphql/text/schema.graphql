@@ -1,0 +1,26 @@
+extend type Query {
+  texts: [Text]
+}
+
+extend type Mutation {
+  textCreate(input: TextCreateInput): Text
+}
+
+type Text {
+  id: ID
+  code: String
+  text_cs: String
+  text_en: String
+  text_svk: String
+  text_blr: String
+  poznamka: String
+}
+
+input TextCreateInput {
+  code: String!
+  text_cs: String!
+  text_en: String
+  text_svk: String
+  text_blr: String
+  poznamka: String
+}
