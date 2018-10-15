@@ -4,6 +4,7 @@ extend type Query {
 
 extend type Mutation {
   textCreate(input: TextCreateInput): Text
+  textUpdate(input: TextUpdateInput): Text
 }
 
 type Text {
@@ -19,6 +20,15 @@ type Text {
 input TextCreateInput {
   code: String!
   text_cs: String!
+  text_en: String
+  text_svk: String
+  text_blr: String
+  poznamka: String
+}
+
+input TextUpdateInput {
+  id: ID!
+  text_cs: String
   text_en: String
   text_svk: String
   text_blr: String
