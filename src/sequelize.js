@@ -10,7 +10,7 @@ export const sequelize = new Sequelize(
   config.dbPassword,
   {
     host: config.dbHost,
-    dialect: 'postgres',
+    dialect: 'mssql',
     operatorsAliases: false,
 
     pool: {
@@ -38,16 +38,15 @@ export const associate = () => {
     // )
     await Role.create({
       code: 'user',
-      textPermissions: [actions.READ]
+      textPermissions: 'y'
     })
     await Role.create({
       code: 'admin',
-      textPermissions: [
-        actions.READ,
-        actions.CREATE,
-        actions.UPDATE,
-        actions.DELETE
-      ]
+      textPermissions: 'x'
+      // actions.READ,
+      // actions.CREATE,
+      // actions.UPDATE,
+      // actions.DELETE
     })
 
     const newUser = User.build({

@@ -8,6 +8,7 @@ import passport from 'passport'
 import configureAuth from './auth'
 import router from './api/index'
 import expressSession from 'express-session'
+import msSql from 'connect-mssql'
 import createExecutableSchema from './graphql/index'
 
 sequelize
@@ -19,11 +20,16 @@ sequelize
 
     app.use(parser.json())
 
-    const PgStore = connectPg(expressSession)
+    const PgStore = msSql(expressSession)
     app.use(
       expressSession({
         // TODO reuse PG pool
-        store: new PgStore({ conString: config.dbConnectionString }),
+        store: new PgStore({
+          user: config.dbUsername,
+          password: config.dbPassword,
+          server: config.dbHost,
+          database: config.dbName
+        }),
         httpOnly: true,
         name: config.sessionName,
         resave: false,
