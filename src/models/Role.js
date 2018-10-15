@@ -6,15 +6,14 @@ export const actions = {
 }
 
 export default (sequelize, Sequelize) => {
-  const RoleSchema = sequelize.define('role', {
+  const RoleSchema = sequelize.define('szn_role', {
     code: {
       type: Sequelize.STRING,
       allowNull: false,
-      primaryKey: true,
-      unique: true
+      primaryKey: true
     },
     textPermissions: {
-      type: Sequelize.ARRAY(Sequelize.STRING)
+      type: Sequelize.STRING
     }
   })
 
